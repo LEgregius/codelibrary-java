@@ -25,11 +25,13 @@
 
 package io.swagger.client.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.QueryResult;
 
 
 /**
@@ -37,25 +39,93 @@ import io.swagger.client.model.QueryResult;
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-31T11:45:12.183-07:00")
 public class ProxyActionqueryResponse   {
-  @SerializedName("result")
-  private QueryResult result = null;
+  @SerializedName("done")
+  private Boolean done = null;
 
-  public ProxyActionqueryResponse result(QueryResult result) {
-    this.result = result;
+  @SerializedName("queryLocator")
+  private String queryLocator = null;
+
+  @SerializedName("records")
+  private List<Map<String, Object>> records = new ArrayList<Map<String, Object>>();
+
+  @SerializedName("size")
+  private Integer size = null;
+
+  public ProxyActionqueryResponse done(Boolean done) {
+    this.done = done;
     return this;
   }
 
-   /**
+  /**
    * 
-   * @return result
-  **/
+   * @return done
+   **/
   @ApiModelProperty(example = "null", value = "")
-  public QueryResult getResult() {
-    return result;
+  public Boolean getDone() {
+    return done;
   }
 
-  public void setResult(QueryResult result) {
-    this.result = result;
+  public void setDone(Boolean done) {
+    this.done = done;
+  }
+
+  public ProxyActionqueryResponse queryLocator(String queryLocator) {
+    this.queryLocator = queryLocator;
+    return this;
+  }
+
+  /**
+   * 
+   * @return queryLocator
+   **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getQueryLocator() {
+    return queryLocator;
+  }
+
+  public void setQueryLocator(String queryLocator) {
+    this.queryLocator = queryLocator;
+  }
+
+  public ProxyActionqueryResponse records(List<Map<String, Object>> records) {
+    this.records = records;
+    return this;
+  }
+
+  public ProxyActionqueryResponse addRecordsItem(Map<String, Object> recordsItem) {
+    this.records.add(recordsItem);
+    return this;
+  }
+
+  /**
+   * 
+   * @return records
+   **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Map<String, Object>> getRecords() {
+    return records;
+  }
+
+  public void setRecords(List<Map<String, Object>> records) {
+    this.records = records;
+  }
+
+  public ProxyActionqueryResponse size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * 
+   * @return size
+   **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
 
@@ -67,21 +137,27 @@ public class ProxyActionqueryResponse   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProxyActionqueryResponse proxyActionqueryResponse = (ProxyActionqueryResponse) o;
-    return Objects.equals(this.result, proxyActionqueryResponse.result);
+    ProxyActionqueryResponse queryResult = (ProxyActionqueryResponse) o;
+    return Objects.equals(this.done, queryResult.done) &&
+            Objects.equals(this.queryLocator, queryResult.queryLocator) &&
+            Objects.equals(this.records, queryResult.records) &&
+            Objects.equals(this.size, queryResult.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result);
+    return Objects.hash(done, queryLocator, records, size);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProxyActionqueryResponse {\n");
-    
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+
+    sb.append("    done: ").append(toIndentedString(done)).append("\n");
+    sb.append("    queryLocator: ").append(toIndentedString(queryLocator)).append("\n");
+    sb.append("    records: ").append(toIndentedString(records)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }
