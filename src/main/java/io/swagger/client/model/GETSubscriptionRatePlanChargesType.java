@@ -155,7 +155,7 @@ public class GETSubscriptionRatePlanChargesType   {
   private String ratingGroup = null;
 
   @SerializedName("segment")
-  private LocalDate segment = null;
+  private String segment = null;
 
   @SerializedName("smoothingModel")
   private String smoothingModel = null;
@@ -883,7 +883,7 @@ public class GETSubscriptionRatePlanChargesType   {
     this.ratingGroup = ratingGroup;
   }
 
-  public GETSubscriptionRatePlanChargesType segment(LocalDate segment) {
+  public GETSubscriptionRatePlanChargesType segment(String segment) {
     this.segment = segment;
     return this;
   }
@@ -893,11 +893,11 @@ public class GETSubscriptionRatePlanChargesType   {
    * @return segment
   **/
   @ApiModelProperty(example = "null", value = "The identifying number of the subscription rate plan segment. Segments are numbered sequentially, starting with 1. ")
-  public LocalDate getSegment() {
+  public String getSegment() {
     return segment;
   }
 
-  public void setSegment(LocalDate segment) {
+  public void setSegment(String segment) {
     this.segment = segment;
   }
 
