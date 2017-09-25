@@ -54,10 +54,10 @@ public class PUTJournalEntryItemType   {
   }
 
    /**
-   * Name of the accounting code.  If the Journal Entry Item has a blank accounting code, enter the empty string (“”).  
+   * Name of the accounting code.  If the Journal Entry Item has a blank accounting code, enter the empty string ("").
    * @return accountingCodeName
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Name of the accounting code.  If the Journal Entry Item has a blank accounting code, enter the empty string (“”).  ")
+  @ApiModelProperty(example = "null", required = true, value = "Name of the accounting code.  If the Journal Entry Item has a blank accounting code, enter the empty string (\"\").  ")
   public String getAccountingCodeName() {
     return accountingCodeName;
   }
