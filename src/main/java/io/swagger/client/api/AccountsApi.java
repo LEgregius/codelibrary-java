@@ -195,7 +195,7 @@ public class AccountsApi {
         
 
         // create path and map variables
-        String localVarPath = "/accounts/{account-key}/Summary".replaceAll("\\{format\\}","json")
+        String localVarPath = "/accounts/{account-key}/summary".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "account-key" + "\\}", apiClient.escapeString(accountKey.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
