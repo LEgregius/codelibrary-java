@@ -67,6 +67,9 @@ public class GETAccountSummaryType   {
   @SerializedName("success")
   private Boolean success = null;
 
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
+
   @SerializedName("taxInfo")
   private GETAccountSummaryTypeTaxInfo taxInfo = null;
 
@@ -214,6 +217,19 @@ public class GETAccountSummaryType   {
     this.success = success;
   }
 
+  public GETAccountSummaryType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
   public GETAccountSummaryType taxInfo(GETAccountSummaryTypeTaxInfo taxInfo) {
     this.taxInfo = taxInfo;
     return this;
@@ -272,13 +288,14 @@ public class GETAccountSummaryType   {
         Objects.equals(this.soldToContact, gETAccountSummaryType.soldToContact) &&
         Objects.equals(this.subscriptions, gETAccountSummaryType.subscriptions) &&
         Objects.equals(this.success, gETAccountSummaryType.success) &&
+        Objects.equals(this.reasons, gETAccountSummaryType.reasons) &&
         Objects.equals(this.taxInfo, gETAccountSummaryType.taxInfo) &&
         Objects.equals(this.usage, gETAccountSummaryType.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicInfo, billToContact, invoices, payments, soldToContact, subscriptions, success, taxInfo, usage);
+    return Objects.hash(basicInfo, billToContact, invoices, payments, soldToContact, subscriptions, success, reasons, taxInfo, usage);
   }
 
   @Override
@@ -293,6 +310,7 @@ public class GETAccountSummaryType   {
     sb.append("    soldToContact: ").append(toIndentedString(soldToContact)).append("\n");
     sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    taxInfo: ").append(toIndentedString(taxInfo)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");

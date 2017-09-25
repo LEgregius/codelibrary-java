@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -47,6 +48,9 @@ public class POSTDecryptResponseType   {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   public POSTDecryptResponseType decryptedSignature(String decryptedSignature) {
     this.decryptedSignature = decryptedSignature;
@@ -120,6 +124,19 @@ public class POSTDecryptResponseType   {
     this.success = success;
   }
 
+  public POSTDecryptResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,12 +150,13 @@ public class POSTDecryptResponseType   {
     return Objects.equals(this.decryptedSignature, pOSTDecryptResponseType.decryptedSignature) &&
         Objects.equals(this.publicKey, pOSTDecryptResponseType.publicKey) &&
         Objects.equals(this.signature, pOSTDecryptResponseType.signature) &&
-        Objects.equals(this.success, pOSTDecryptResponseType.success);
+        Objects.equals(this.success, pOSTDecryptResponseType.success) &&
+        Objects.equals(this.reasons, pOSTDecryptResponseType.reasons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(decryptedSignature, publicKey, signature, success);
+    return Objects.hash(decryptedSignature, publicKey, signature, success, reasons);
   }
 
   @Override
@@ -150,6 +168,7 @@ public class POSTDecryptResponseType   {
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("}");
     return sb.toString();
   }

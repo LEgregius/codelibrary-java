@@ -130,6 +130,9 @@ public class GETSubscriptionTypeWithSuccess   {
   @SerializedName("status")
   private String status = null;
 
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
+
   @SerializedName("subscriptionNumber")
   private String subscriptionNumber = null;
 
@@ -750,6 +753,19 @@ public class GETSubscriptionTypeWithSuccess   {
     this.success = success;
   }
 
+  public GETSubscriptionTypeWithSuccess reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
   public GETSubscriptionTypeWithSuccess termEndDate(LocalDate termEndDate) {
     this.termEndDate = termEndDate;
     return this;
@@ -865,6 +881,7 @@ public class GETSubscriptionTypeWithSuccess   {
         Objects.equals(this.subscriptionNumber, gETSubscriptionTypeWithSuccess.subscriptionNumber) &&
         Objects.equals(this.subscriptionStartDate, gETSubscriptionTypeWithSuccess.subscriptionStartDate) &&
         Objects.equals(this.success, gETSubscriptionTypeWithSuccess.success) &&
+        Objects.equals(this.reasons, gETSubscriptionTypeWithSuccess.reasons) &&
         Objects.equals(this.termEndDate, gETSubscriptionTypeWithSuccess.termEndDate) &&
         Objects.equals(this.termStartDate, gETSubscriptionTypeWithSuccess.termStartDate) &&
         Objects.equals(this.termType, gETSubscriptionTypeWithSuccess.termType) &&
@@ -873,7 +890,7 @@ public class GETSubscriptionTypeWithSuccess   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpqBundleJsonIdQT, opportunityCloseDateQT, opportunityNameQT, quoteBusinessTypeQT, quoteNumberQT, quoteTypeQT, accountId, accountName, accountNumber, autoRenew, contractEffectiveDate, contractedMrr, currentTerm, currentTermPeriodType, customFieldC, customerAcceptanceDate, id, initialTerm, initialTermPeriodType, invoiceOwnerAccountId, invoiceOwnerAccountName, invoiceOwnerAccountNumber, invoiceSeparately, notes, ratePlans, renewalSetting, renewalTerm, renewalTermPeriodType, serviceActivationDate, status, subscriptionNumber, subscriptionStartDate, success, termEndDate, termStartDate, termType, totalContractedValue);
+    return Objects.hash(cpqBundleJsonIdQT, opportunityCloseDateQT, opportunityNameQT, quoteBusinessTypeQT, quoteNumberQT, quoteTypeQT, accountId, accountName, accountNumber, autoRenew, contractEffectiveDate, contractedMrr, currentTerm, currentTermPeriodType, customFieldC, customerAcceptanceDate, id, initialTerm, initialTermPeriodType, invoiceOwnerAccountId, invoiceOwnerAccountName, invoiceOwnerAccountNumber, invoiceSeparately, notes, ratePlans, renewalSetting, renewalTerm, renewalTermPeriodType, serviceActivationDate, status, subscriptionNumber, subscriptionStartDate, success, reasons, termEndDate, termStartDate, termType, totalContractedValue);
   }
 
   @Override
@@ -914,6 +931,7 @@ public class GETSubscriptionTypeWithSuccess   {
     sb.append("    subscriptionNumber: ").append(toIndentedString(subscriptionNumber)).append("\n");
     sb.append("    subscriptionStartDate: ").append(toIndentedString(subscriptionStartDate)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    termEndDate: ").append(toIndentedString(termEndDate)).append("\n");
     sb.append("    termStartDate: ").append(toIndentedString(termStartDate)).append("\n");
     sb.append("    termType: ").append(toIndentedString(termType)).append("\n");

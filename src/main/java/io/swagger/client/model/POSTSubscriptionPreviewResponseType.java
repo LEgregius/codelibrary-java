@@ -65,6 +65,9 @@ public class POSTSubscriptionPreviewResponseType   {
   @SerializedName("success")
   private Boolean success = null;
 
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
+
   @SerializedName("taxAmount")
   private String taxAmount = null;
 
@@ -220,6 +223,19 @@ public class POSTSubscriptionPreviewResponseType   {
     this.success = success;
   }
 
+  public POSTSubscriptionPreviewResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
   public POSTSubscriptionPreviewResponseType taxAmount(String taxAmount) {
     this.taxAmount = taxAmount;
     return this;
@@ -274,13 +290,14 @@ public class POSTSubscriptionPreviewResponseType   {
         Objects.equals(this.invoiceTargetDate, pOSTSubscriptionPreviewResponseType.invoiceTargetDate) &&
         Objects.equals(this.previewChargeMetricsResponse, pOSTSubscriptionPreviewResponseType.previewChargeMetricsResponse) &&
         Objects.equals(this.success, pOSTSubscriptionPreviewResponseType.success) &&
+        Objects.equals(this.reasons, pOSTSubscriptionPreviewResponseType.reasons) &&
         Objects.equals(this.taxAmount, pOSTSubscriptionPreviewResponseType.taxAmount) &&
         Objects.equals(this.totalContractedValue, pOSTSubscriptionPreviewResponseType.totalContractedValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountWithoutTax, chargeMetrics, contractedMrr, invoiceItems, invoiceTargetDate, previewChargeMetricsResponse, success, taxAmount, totalContractedValue);
+    return Objects.hash(amount, amountWithoutTax, chargeMetrics, contractedMrr, invoiceItems, invoiceTargetDate, previewChargeMetricsResponse, success, reasons, taxAmount, totalContractedValue);
   }
 
   @Override
@@ -296,6 +313,7 @@ public class POSTSubscriptionPreviewResponseType   {
     sb.append("    invoiceTargetDate: ").append(toIndentedString(invoiceTargetDate)).append("\n");
     sb.append("    previewChargeMetricsResponse: ").append(toIndentedString(previewChargeMetricsResponse)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
     sb.append("    totalContractedValue: ").append(toIndentedString(totalContractedValue)).append("\n");
     sb.append("}");

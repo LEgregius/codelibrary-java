@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -41,6 +42,9 @@ public class ProxyCreateOrModifyResponse   {
 
   @SerializedName("Success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   public ProxyCreateOrModifyResponse id(String id) {
     this.id = id;
@@ -78,6 +82,19 @@ public class ProxyCreateOrModifyResponse   {
     this.success = success;
   }
 
+  public ProxyCreateOrModifyResponse reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -89,12 +106,13 @@ public class ProxyCreateOrModifyResponse   {
     }
     ProxyCreateOrModifyResponse proxyCreateOrModifyResponse = (ProxyCreateOrModifyResponse) o;
     return Objects.equals(this.id, proxyCreateOrModifyResponse.id) &&
-        Objects.equals(this.success, proxyCreateOrModifyResponse.success);
+        Objects.equals(this.success, proxyCreateOrModifyResponse.success) &&
+        Objects.equals(this.reasons, proxyCreateOrModifyResponse.reasons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, success);
+    return Objects.hash(id, success, reasons);
   }
 
   @Override
@@ -104,6 +122,7 @@ public class ProxyCreateOrModifyResponse   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("}");
     return sb.toString();
   }
