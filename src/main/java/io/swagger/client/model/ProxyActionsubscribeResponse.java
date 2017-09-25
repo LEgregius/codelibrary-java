@@ -42,6 +42,12 @@ public class ProxyActionsubscribeResponse   {
   @SerializedName("result")
   private List<SubscribeResult> result = new ArrayList<SubscribeResult>();
 
+  @SerializedName("success")
+  private Boolean success = true;
+
+  @SerializedName("errors")
+  private List<Reason> reasons = null;
+
   public ProxyActionsubscribeResponse result(List<SubscribeResult> result) {
     this.result = result;
     return this;
@@ -65,6 +71,37 @@ public class ProxyActionsubscribeResponse   {
     this.result = result;
   }
 
+  public ProxyActionsubscribeResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+  /**
+   * Returns `true` if the request was processed successfully.
+   * @return success
+   **/
+  @ApiModelProperty(example = "null", value = "Returns `true` if the request was processed successfully. ")
+  public Boolean getSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public ProxyActionsubscribeResponse reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -75,12 +112,15 @@ public class ProxyActionsubscribeResponse   {
       return false;
     }
     ProxyActionsubscribeResponse proxyActionsubscribeResponse = (ProxyActionsubscribeResponse) o;
-    return Objects.equals(this.result, proxyActionsubscribeResponse.result);
+    return Objects.equals(this.result, proxyActionsubscribeResponse.result) &&
+        Objects.equals(this.success, proxyActionsubscribeResponse.success) &&
+        Objects.equals(this.reasons, proxyActionsubscribeResponse.reasons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result);
+    return Objects.hash(result, success, reasons);
+//    return Objects.hash(result);
   }
 
   @Override
@@ -89,6 +129,8 @@ public class ProxyActionsubscribeResponse   {
     sb.append("class ProxyActionsubscribeResponse {\n");
     
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("}");
     return sb.toString();
   }

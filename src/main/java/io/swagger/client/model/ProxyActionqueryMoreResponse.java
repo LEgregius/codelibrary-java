@@ -25,76 +25,10 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.QueryResult;
-
 
 /**
  * ProxyActionqueryMoreResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-31T11:45:12.183-07:00")
-public class ProxyActionqueryMoreResponse   {
-  @SerializedName("result")
-  private QueryResult result = null;
-
-  public ProxyActionqueryMoreResponse result(QueryResult result) {
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * 
-   * @return result
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public QueryResult getResult() {
-    return result;
-  }
-
-  public void setResult(QueryResult result) {
-    this.result = result;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ProxyActionqueryMoreResponse proxyActionqueryMoreResponse = (ProxyActionqueryMoreResponse) o;
-    return Objects.equals(this.result, proxyActionqueryMoreResponse.result);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(result);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProxyActionqueryMoreResponse {\n");
-    
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+public class ProxyActionqueryMoreResponse extends ProxyActionqueryResponse {
 }
 
