@@ -45,6 +45,9 @@ public class GETSubscriptionWrapper   {
   @SerializedName("success")
   private Boolean success = null;
 
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
+
   public GETSubscriptionWrapper subscriptions(List<GETSubscriptionType> subscriptions) {
     this.subscriptions = subscriptions;
     return this;
@@ -86,6 +89,19 @@ public class GETSubscriptionWrapper   {
     this.success = success;
   }
 
+  public GETSubscriptionWrapper reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,12 +113,13 @@ public class GETSubscriptionWrapper   {
     }
     GETSubscriptionWrapper gETSubscriptionWrapper = (GETSubscriptionWrapper) o;
     return Objects.equals(this.subscriptions, gETSubscriptionWrapper.subscriptions) &&
-        Objects.equals(this.success, gETSubscriptionWrapper.success);
+        Objects.equals(this.success, gETSubscriptionWrapper.success) &&
+        Objects.equals(this.reasons, gETSubscriptionWrapper.reasons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subscriptions, success);
+    return Objects.hash(subscriptions, success, reasons);
   }
 
   @Override
@@ -112,6 +129,7 @@ public class GETSubscriptionWrapper   {
     
     sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("}");
     return sb.toString();
   }

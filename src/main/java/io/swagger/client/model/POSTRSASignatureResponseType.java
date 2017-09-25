@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -44,6 +45,9 @@ public class POSTRSASignatureResponseType   {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   @SerializedName("tenantId")
   private String tenantId = null;
@@ -105,6 +109,19 @@ public class POSTRSASignatureResponseType   {
     this.success = success;
   }
 
+  public POSTRSASignatureResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
   public POSTRSASignatureResponseType tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
@@ -154,13 +171,14 @@ public class POSTRSASignatureResponseType   {
     return Objects.equals(this.key, pOSTRSASignatureResponseType.key) &&
         Objects.equals(this.signature, pOSTRSASignatureResponseType.signature) &&
         Objects.equals(this.success, pOSTRSASignatureResponseType.success) &&
+        Objects.equals(this.reasons, pOSTRSASignatureResponseType.reasons) &&
         Objects.equals(this.tenantId, pOSTRSASignatureResponseType.tenantId) &&
         Objects.equals(this.token, pOSTRSASignatureResponseType.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, signature, success, tenantId, token);
+    return Objects.hash(key, signature, success, reasons, tenantId, token);
   }
 
   @Override
@@ -171,6 +189,7 @@ public class POSTRSASignatureResponseType   {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");

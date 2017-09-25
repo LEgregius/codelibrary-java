@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -38,6 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 public class CommonResponseType   {
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   public CommonResponseType success(Boolean success) {
     this.success = success;
@@ -57,6 +61,19 @@ public class CommonResponseType   {
     this.success = success;
   }
 
+  public CommonResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +84,13 @@ public class CommonResponseType   {
       return false;
     }
     CommonResponseType commonResponseType = (CommonResponseType) o;
-    return Objects.equals(this.success, commonResponseType.success);
+    return Objects.equals(this.success, commonResponseType.success) &&
+        Objects.equals(this.reasons, commonResponseType.reasons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success);
+    return Objects.hash(success, reasons);
   }
 
   @Override
@@ -81,6 +99,7 @@ public class CommonResponseType   {
     sb.append("class CommonResponseType {\n");
     
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("}");
     return sb.toString();
   }

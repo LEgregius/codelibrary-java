@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -65,6 +66,9 @@ public class POSTAccountResponseType   {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   @SerializedName("totalContractedValue")
   private String totalContractedValue = null;
@@ -236,10 +240,10 @@ public class POSTAccountResponseType   {
     return this;
   }
 
-   /**
-   * Returns `true` if the request was processed successfully. 
+  /**
+   * Returns `true` if the request was processed successfully.
    * @return success
-  **/
+   **/
   @ApiModelProperty(example = "null", value = "Returns `true` if the request was processed successfully. ")
   public Boolean getSuccess() {
     return success;
@@ -247,6 +251,19 @@ public class POSTAccountResponseType   {
 
   public void setSuccess(Boolean success) {
     this.success = success;
+  }
+
+  public POSTAccountResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
   }
 
   public POSTAccountResponseType totalContractedValue(String totalContractedValue) {
@@ -287,12 +304,13 @@ public class POSTAccountResponseType   {
         Objects.equals(this.subscriptionId, pOSTAccountResponseType.subscriptionId) &&
         Objects.equals(this.subscriptionNumber, pOSTAccountResponseType.subscriptionNumber) &&
         Objects.equals(this.success, pOSTAccountResponseType.success) &&
+        Objects.equals(this.reasons, pOSTAccountResponseType.reasons) &&
         Objects.equals(this.totalContractedValue, pOSTAccountResponseType.totalContractedValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, accountNumber, contractedMrr, invoiceId, paidAmount, paymentId, paymentMethodId, subscriptionId, subscriptionNumber, success, totalContractedValue);
+    return Objects.hash(accountId, accountNumber, contractedMrr, invoiceId, paidAmount, paymentId, paymentMethodId, subscriptionId, subscriptionNumber, success, reasons, totalContractedValue);
   }
 
   @Override
@@ -310,6 +328,7 @@ public class POSTAccountResponseType   {
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    subscriptionNumber: ").append(toIndentedString(subscriptionNumber)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    totalContractedValue: ").append(toIndentedString(totalContractedValue)).append("\n");
     sb.append("}");
     return sb.toString();

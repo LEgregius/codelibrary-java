@@ -25,6 +25,7 @@
 
 package io.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
@@ -56,6 +57,9 @@ public class POSTSubscriptionResponseType   {
 
   @SerializedName("success")
   private Boolean success = null;
+
+  @SerializedName("reasons")
+  private List<Reason> reasons = null;
 
   @SerializedName("totalContractedValue")
   private String totalContractedValue = null;
@@ -186,6 +190,19 @@ public class POSTSubscriptionResponseType   {
     this.success = success;
   }
 
+  public POSTSubscriptionResponseType reasons(List<Reason> reasons) {
+    this.reasons = reasons;
+    return this;
+  }
+
+  public List<Reason> getReasons() {
+    return reasons;
+  }
+
+  public void setReasons(List<Reason> reasons) {
+    this.reasons = reasons;
+  }
+
   public POSTSubscriptionResponseType totalContractedValue(String totalContractedValue) {
     this.totalContractedValue = totalContractedValue;
     return this;
@@ -221,12 +238,13 @@ public class POSTSubscriptionResponseType   {
         Objects.equals(this.subscriptionId, pOSTSubscriptionResponseType.subscriptionId) &&
         Objects.equals(this.subscriptionNumber, pOSTSubscriptionResponseType.subscriptionNumber) &&
         Objects.equals(this.success, pOSTSubscriptionResponseType.success) &&
+        Objects.equals(this.reasons, pOSTSubscriptionResponseType.reasons) &&
         Objects.equals(this.totalContractedValue, pOSTSubscriptionResponseType.totalContractedValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractedMrr, invoiceId, paidAmount, paymentId, subscriptionId, subscriptionNumber, success, totalContractedValue);
+    return Objects.hash(contractedMrr, invoiceId, paidAmount, paymentId, subscriptionId, subscriptionNumber, success, reasons, totalContractedValue);
   }
 
   @Override
@@ -241,6 +259,7 @@ public class POSTSubscriptionResponseType   {
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    subscriptionNumber: ").append(toIndentedString(subscriptionNumber)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    reasons: ").append(toIndentedString(reasons)).append("\n");
     sb.append("    totalContractedValue: ").append(toIndentedString(totalContractedValue)).append("\n");
     sb.append("}");
     return sb.toString();
