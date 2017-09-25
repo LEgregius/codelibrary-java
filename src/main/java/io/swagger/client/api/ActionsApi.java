@@ -25,6 +25,8 @@
 
 package io.swagger.client.api;
 
+import com.google.gson.reflect.TypeToken;
+
 import io.swagger.client.ApiCallback;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -33,31 +35,27 @@ import io.swagger.client.Configuration;
 import io.swagger.client.Pair;
 import io.swagger.client.ProgressRequestBody;
 import io.swagger.client.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-import io.swagger.client.model.ProxyActionamendResponse;
-import io.swagger.client.model.ProxyBadRequestResponse;
 import io.swagger.client.model.ProxyActionamendRequest;
+import io.swagger.client.model.ProxyActionamendResponse;
 import io.swagger.client.model.ProxyActioncreateRequest;
 import io.swagger.client.model.ProxyActioncreateResponse;
 import io.swagger.client.model.ProxyActiondeleteRequest;
 import io.swagger.client.model.ProxyActiondeleteResponse;
-import io.swagger.client.model.ProxyActionexecuteResponse;
 import io.swagger.client.model.ProxyActionexecuteRequest;
+import io.swagger.client.model.ProxyActionexecuteResponse;
 import io.swagger.client.model.ProxyActiongenerateRequest;
 import io.swagger.client.model.ProxyActiongenerateResponse;
-import io.swagger.client.model.ProxyActionqueryResponse;
-import io.swagger.client.model.ProxyActionqueryRequest;
-import io.swagger.client.model.ProxyActionqueryMoreResponse;
 import io.swagger.client.model.ProxyActionqueryMoreRequest;
-import io.swagger.client.model.ProxyActionsubscribeResponse;
+import io.swagger.client.model.ProxyActionqueryMoreResponse;
+import io.swagger.client.model.ProxyActionqueryRequest;
+import io.swagger.client.model.ProxyActionqueryResponse;
 import io.swagger.client.model.ProxyActionsubscribeRequest;
-import io.swagger.client.model.ProxyActionupdateResponse;
+import io.swagger.client.model.ProxyActionsubscribeResponse;
 import io.swagger.client.model.ProxyActionupdateRequest;
+import io.swagger.client.model.ProxyActionupdateResponse;
+import io.swagger.client.model.SubscribeResult;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -893,8 +891,11 @@ public class ActionsApi {
      */
     public ApiResponse<ProxyActionsubscribeResponse> proxyActionPOSTsubscribeWithHttpInfo(ProxyActionsubscribeRequest subscribeRequest) throws ApiException {
         com.squareup.okhttp.Call call = proxyActionPOSTsubscribeCall(subscribeRequest, null, null);
-        Type localVarReturnType = new TypeToken<ProxyActionsubscribeResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        // Need to look for an anonymous array type (ie that inside ProxyActionsubscribeResponse) since
+        // the JSON returned from the API in a successful case starts: "[{...". If ok (no exception)
+        // wrap the result up into a ProxyActionsubscribeResponse.
+        final ApiResponse<List<SubscribeResult>> execute = apiClient.execute(call, new TypeToken<List<SubscribeResult>>() {}.getType());
+        return new ApiResponse<>(execute.getStatusCode(), execute.getHeaders(), new ProxyActionsubscribeResponse().result(execute.getData()));
     }
 
     /**
